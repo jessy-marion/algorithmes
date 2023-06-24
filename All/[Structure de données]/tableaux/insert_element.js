@@ -56,6 +56,52 @@ class MyArray {
       this.value = arr;
     }
   }
+  removeItemAt(position) {
+    if (!this.value[position]) {
+      return;
+    } else {
+      const arr = new Array(this.value.length - 1);
+      for (let i = 0; i < this.value.length; i++) {
+        if (i < position) {
+          arr[i] = this.value[i];
+        } else if (i > position) {
+          arr[i - 1] = this.value[i];
+        }
+      }
+      this.value = arr;
+    }
+  }
+
+  removeAtBeginning() {
+    if (this.value.length === 0) {
+      return;
+    } else {
+      const arr = new Array(this.value.length - 1);
+      for (let i = 1; i < this.value.length; i++) {
+        arr[i - 1] = this.value[i];
+      }
+      this.value = arr;
+    }
+  }
+
+  removeAtEnd() {
+    if (this.value.length === 0) {
+      return;
+    } else {
+      const arr = new Array(this.value.length - 1);
+      let i = 0;
+
+      while (i < this.value.length) {
+        if (i === this.value.length - 1) {
+          break;
+        } else {
+          arr[i] = this.value[i];
+          i++;
+        }
+      }
+      this.value = arr;
+    }
+  }
 }
 
 const myArr = new MyArray("firstElement");
@@ -64,5 +110,7 @@ myArr.addItemAtBeginning("secondInputElement");
 myArr.addItemAtTheEnd("firstInputItemAtTheEnd");
 myArr.addItemAtTheEnd("secondInputItemAtTheEnd");
 myArr.addItemAtPosition("positionItem", 4);
-
+/*myArr.removeAtBeginning();
+myArr.removeAtEnd();*/
+myArr.removeItemAt();
 console.log(myArr);
