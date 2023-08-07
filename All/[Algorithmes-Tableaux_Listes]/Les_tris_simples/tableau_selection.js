@@ -5,7 +5,6 @@ function selectionSort(array) {
     let minIndex = i;
 
     for (let j = i + 1; j < array.length; j++) {
-      // si l'element suivant du tableau est plus petit alors il prendra la nouvelle référence minJ
       if (array[minIndex] > array[j]) {
         minIndex = j;
       }
